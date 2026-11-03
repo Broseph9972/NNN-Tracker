@@ -25,7 +25,7 @@ days.
 
 ## easy input webapp
 
-Open [index.html](./index.html) directly in a browser. Click each day to
+Open [docs/index.html](./docs/index.html) directly in a browser. Click each day to
 cycle through empty, no nap (`✓`), and napped (`×`). The statuses are saved
 locally in the browser with `localStorage`; no Wi-Fi, server, or account is
 needed. Use **Reset month** to clear the local entries.
