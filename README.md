@@ -1,4 +1,4 @@
-# No Nap November TRMNL Plugin
+# No *Nap* November TRMNL Plugin
 
 A November-only habit tracker for the [TRMNL](https://usetrmnl.com/) e-ink
 display. Each day shows a checkmark (`✓`) when no nap was recorded and an X
