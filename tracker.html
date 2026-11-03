@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>No Nap November</title>
+    <link rel="stylesheet" href="tracker.css">
+  </head>
+  <body>
+    <main class="tracker">
+      <header class="tracker__header">
+        <div>
+          <p class="eyebrow">November 2026</p>
+          <h1>No Nap November</h1>
+          <p id="prompt" class="prompt"></p>
+        </div>
+        <strong id="count" class="count">0/30</strong>
+      </header>
+
+      <div class="legend" aria-label="Status legend">
+        <span>Click a day to cycle: — → ✓ → ×</span>
+        <button id="reset" type="button">Reset month</button>
+      </div>
+
+      <section id="days" class="days" aria-label="November days"></section>
+    </main>
+    <script src="tracker.js"></script>
+  </body>
+</html>

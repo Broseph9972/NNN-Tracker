@@ -1,0 +1,74 @@
+<style>
+  .nap-tracker {
+    height: 100%;
+  }
+
+  .nap-tracker__legend {
+    border-bottom: 1px solid #000;
+    padding-bottom: 8px;
+  }
+
+  .nap-tracker__grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+    flex: 1;
+  }
+
+  .nap-tracker__day {
+    min-height: 0;
+    border: 1px solid #000;
+    padding: 8px 4px;
+  }
+
+  .nap-tracker__status {
+    font-size: 2rem;
+    line-height: 1;
+    margin-top: 8px;
+  }
+
+  .nap-tracker__status--nap {
+    font-weight: 700;
+  }
+</style>
+
+{% template dashboard %}
+{% assign current_day = trmnl.system.timestamp_utc | date: "%-d" | plus: 0 %}
+<div class="nap-tracker flex flex--col flex--stretch-x gap--small">
+  <div class="flex flex--between flex--align-center">
+    <div>
+      <div class="title">No Nap November</div>
+      <div class="label">November {{ nap_tracker.year }} · one check-in per day</div>
+    </div>
+    <div class="value">0/30</div>
+  </div>
+
+  <div class="nap-tracker__legend flex flex--end gap--small">
+    <span class="label">✓ no nap</span>
+    <span class="label">× napped</span>
+  </div>
+
+  {% if current_day > 1 %}
+    <div class="description text--center">Please fill in your status for days 1–{{ current_day | minus: 1 }}.</div>
+  {% else %}
+    <div class="description text--center">Please fill in today's status.</div>
+  {% endif %}
+
+  <div class="nap-tracker__grid">
+    {% for entry in nap_tracker.days %}
+      <div class="nap-tracker__day flex flex--col flex--center">
+        <div class="label">{{ entry.day }}</div>
+        {% if entry.status == "nap" %}
+          <div class="nap-tracker__status nap-tracker__status--nap">×</div>
+        {% elsif entry.status == "clear" %}
+          <div class="nap-tracker__status nap-tracker__status--clear">✓</div>
+        {% else %}
+          <div class="nap-tracker__status">—</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="description text--center">— = not filled in</div>
+</div>
+{% endtemplate %}
