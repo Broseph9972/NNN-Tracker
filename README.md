@@ -25,7 +25,7 @@ days.
 
 ## easy input webapp
 
-Open [tracker.html](./tracker.html) directly in a browser. Click each day to
+Open [index.html](./index.html) directly in a browser. Click each day to
 cycle through empty, no nap (`✓`), and napped (`×`). The statuses are saved
 locally in the browser with `localStorage`; no Wi-Fi, server, or account is
 needed. Use **Reset month** to clear the local entries.
